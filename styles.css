@@ -1,0 +1,71 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    position: relative; /* Add this line */
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.x::before,
+.circle::before {
+    position: absolute;
+    top: 50%; /* Position at the center vertically */
+    left: 50%; /* Position at the center horizontally */
+    transform: translate(-50%, -50%); /* Center the content */
+    color: inherit; /* Inherit the color from parent */
+}
+
+.x::before {
+    content: 'X';
+    color: red;
+}
+
+.circle::before {
+    content: 'O';
+    color: blue;
+}
+
+.winning-message {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.winning-message.show {
+    display: flex;
+}
+
+#restartButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
